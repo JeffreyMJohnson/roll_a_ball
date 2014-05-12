@@ -11,7 +11,8 @@ Platform assembly: C:\Users\Jeff\workspace\roll_a_ball\Builds\PC\Dev\roll_a_ball
 Loading C:\Users\Jeff\workspace\roll_a_ball\Builds\PC\Dev\roll_a_ball_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Jeff\workspace\roll_a_ball\Builds\PC\Dev\roll_a_ball_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Jeff\workspace\roll_a_ball\Builds\PC\Dev\roll_a_ball_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.217 seconds
+- Completed reload, in  0.694 seconds
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+Waiting for finish
