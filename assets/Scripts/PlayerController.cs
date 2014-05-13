@@ -7,14 +7,34 @@ public class PlayerController : MonoBehaviour
 		public float keySpeed;
 		public float touchSpeed;
 		private int count;
+		private bool isGameOver;
 		public GUIText countText;
-		public GUIText winText;
 
 		void Start ()
 		{
 				count = 0;
 				setCountText ();
-				winText.text = "";
+				isGameOver = false;
+		}
+
+		void OnGUI ()
+		{
+				if (isGameOver) {
+						// Make a group on the center of the screen
+						GUI.BeginGroup (new Rect (Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100));
+						// All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
+					
+						// We'll make a box so you can see where the group is on-screen.
+						GUI.Box (new Rect (0, 0, 100, 100), "You Win!!");
+					
+						if (GUI.Button (new Rect (10, 40, 80, 30), "End Game")) {
+								Application.Quit ();
+					
+						}
+					
+						// End the group we started above. This is very important to remember!
+						GUI.EndGroup ();
+				}
 		}
 
 		void Update ()
@@ -52,7 +72,7 @@ public class PlayerController : MonoBehaviour
 						setCountText ();
 
 						if (count == 14) {
-								winText.text = "You Win!";
+								isGameOver = true;
 						}
 				}
 		}
