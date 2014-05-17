@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Rotator : MonoBehaviour
 {
+		public GameObject gameBoard;
 
 		void Update ()
 		{

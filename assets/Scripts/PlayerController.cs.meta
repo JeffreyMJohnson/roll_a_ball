@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 584da9e08be2aac408ede8e9114dee52
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - countText: {instanceID: 0}
+  - timerText: {instanceID: 0}
+  - timerTextSkin: {fileID: 11400000, guid: fd0dd9f9954a3a94ea6d51aa376c8a4a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

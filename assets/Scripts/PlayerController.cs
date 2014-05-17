@@ -3,18 +3,24 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-
 		public float keySpeed;
 		public float touchSpeed;
-		private int count;
-		private bool isGameOver;
 		public GUIText countText;
+		public Font timerFont;
+		public GUIText timerText;
 
+		private int count;
+		private System.DateTime startTime;
+		private bool isGameOver;
+	
 		void Start ()
 		{
 				count = 0;
 				setCountText ();
 				isGameOver = false;
+				startTime = System.DateTime.Now;
+				Debug.Log (startTime.ToString ());
+
 		}
 
 		void OnGUI ()
@@ -35,20 +41,20 @@ public class PlayerController : MonoBehaviour
 						// End the group we started above. This is very important to remember!
 						GUI.EndGroup ();
 				}
+
 		}
 
 		void Update ()
 		{
-//				if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) {
-//						speed = 100.0f;
-//						Vector2 touchDeltaPosition = Input.GetTouch (0).deltaPosition;
-//						Vector3 movement = new Vector3 (touchDeltaPosition.x, 0.0f, touchDeltaPosition.y);
-//						rigidbody.AddForce (movement * speed * Time.deltaTime);
-//				}
-
-				float x = Input.GetAxis ("Mouse X");
-				float y = Input.GetAxis ("Mouse Y");
-				rigidbody.AddForce (new Vector3 (x, 0.0f, y) * touchSpeed);
+				System.TimeSpan elapsedTime = System.DateTime.Now.Subtract (startTime);
+				Debug.Log ("time: " + elapsedTime);
+				string timerString = string.Format ("Time {0:D2}:{1:D2}", elapsedTime.Minutes, elapsedTime.Seconds);
+				timerText.text = timerString;
+				if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) {
+						Vector2 touchDeltaPosition = Input.GetTouch (0).deltaPosition;
+						Vector3 movement = new Vector3 (touchDeltaPosition.x, 0.0f, touchDeltaPosition.y);
+						rigidbody.AddForce (movement * touchSpeed * Time.deltaTime);
+				}
 
 
 		}
